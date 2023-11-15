@@ -25,15 +25,14 @@ export const ContainerWidget = () => {
     }
   };
 
-    const countTotalFeedback = () => {
-      return good + neutral + bad;
+  const countTotalFeedback = () => {
+    return good + neutral + bad;
   };
 
   const countPositiveFeedbackPercentage = () => {
     const total = countTotalFeedback();
     return Math.round((good * 100) / total);
   };
-
 
   return (
     <div>
@@ -44,7 +43,7 @@ export const ContainerWidget = () => {
         />
       </Section>
       <Section title="Statistics">
-        { countTotalFeedback() > 0 && (
+        {countTotalFeedback() > 0 && (
           <Statistics
             good={good}
             neutral={neutral}
@@ -53,7 +52,9 @@ export const ContainerWidget = () => {
             positivePercentage={countPositiveFeedbackPercentage()}
           />
         )}
-        {countTotalFeedback() === 0 && <Notification message="There is no feedback" />}
+        {countTotalFeedback() === 0 && (
+          <Notification message="There is no feedback" />
+        )}
       </Section>
     </div>
   );
